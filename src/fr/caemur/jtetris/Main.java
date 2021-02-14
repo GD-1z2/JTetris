@@ -25,8 +25,8 @@ import org.lwjgl.util.glu.GLU;
 public class Main {
 	public boolean running = false;
 	
-	public String title = "";
-	public String icon = "";
+	public String title;
+	public String[] icons;
 	public int width;
 	public int height;
 	public boolean showFps = true;
@@ -50,16 +50,16 @@ public class Main {
 	
 	public static void main(String[] args) {
 		game = new Game();
-		instance = new Main(MAP_WIDTH*TILE_SIZE, MAP_HEIGHT*TILE_SIZE, "JTetris", "/tile.png", game);
+		instance = new Main(MAP_WIDTH*TILE_SIZE, MAP_HEIGHT*TILE_SIZE, "JTetris", new String[] {"/icon16.png", "/icon32.png"}, game);
 		instance.start();
 	}
 	
-	public Main(int width, int height, String title, String icon, Game game)
+	public Main(int width, int height, String title, String[] icons, Game game)
 	{
 		this.width = width;
 		this.height = height;
 		this.title = title;
-		this.icon = icon;
+		this.icons = icons;
 		mode = new DisplayMode(width, height);
 		display();
 		Main.game = game;
@@ -85,8 +85,7 @@ public class Main {
 	public void loop()
 	{
 		game.init();
-		Display.setIcon(new ByteBuffer[] {Texture.getIcon(icon)});
-		
+
 		long timer = System.currentTimeMillis();
 		
 		long before = System.nanoTime();
@@ -161,6 +160,7 @@ public class Main {
 			Display.setFullscreen(false);
 			Display.setTitle(title);
 			Display.setLocation(0, 0);
+			Display.setIcon(new ByteBuffer[] {Texture.getIcon(icons[0]),Texture.getIcon(icons[1])});
 			Display.create();
 			
 			view2D(width, height);

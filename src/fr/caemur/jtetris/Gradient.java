@@ -11,18 +11,15 @@ public class Gradient {
 	 */
 	public static float[] getGradient() {
 		float[] gradient = new float[6];
-		
+
+		gradient[0] = rand.nextFloat()/3;
+		gradient[1] = rand.nextFloat()/3;
+		gradient[2] = rand.nextFloat()/3;
+
 		//first color
 		if (rand.nextBoolean()) { //one color
-			gradient[0] = rand.nextFloat()/3;
-			gradient[1] = rand.nextFloat()/3;
-			gradient[2] = rand.nextFloat()/3;
-			
 			gradient[rand.nextInt(3)] = rand.nextFloat()/2+.5f;
 		} else { //mix two colors
-			gradient[0] = rand.nextFloat()/3;
-			gradient[1] = rand.nextFloat()/3;
-			gradient[2] = rand.nextFloat()/3;
 			gradient[rand.nextInt(3)] = rand.nextFloat();
 			gradient[rand.nextInt(3)] = rand.nextFloat();
 		}

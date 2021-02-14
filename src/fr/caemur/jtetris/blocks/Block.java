@@ -117,8 +117,7 @@ public class Block {
 			}
 			this.r++;
 			this.r%=4;
-			System.out.println(this.r);
-			
+
 			tiles = rotatedTiles;
 		}
 	}

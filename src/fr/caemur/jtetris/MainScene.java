@@ -69,7 +69,7 @@ public class MainScene extends Scene {
 		}
 
 		previewBlock.update(blocks.get(0));
-		
+
 		int[] lineWeights = new int[Main.MAP_HEIGHT];
 		for (Tile tile : tiles) {
 			lineWeights[tile.getY()]++;
@@ -182,7 +182,6 @@ public class MainScene extends Scene {
 	}
 
 	public void updateMoveTick() {
-		System.out.println("update move tick");
 		lastMoveTick = Main.instance.totalTicks;
 	}
 
